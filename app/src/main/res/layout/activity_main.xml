@@ -78,12 +78,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_recipes"
         android:layout_width="match_parent"
-        android:layout_height="438dp"
+        android:layout_height="464dp"
         android:layout_margin="8dp" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_nav"
@@ -93,7 +93,7 @@
             app:itemBackground="@color/white"
             app:itemIconTint="@drawable/nav_bar_selection"
             app:itemTextColor="@drawable/nav_bar_selection"
-            app:menu="@menu/menu_nav"/>
+            app:menu="@menu/menu_nav" />
 
     </RelativeLayout>
 

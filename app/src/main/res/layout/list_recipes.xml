@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="@color/white"
+    android:id="@+id/recipe_list_container"
+    app:cardElevation="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView_dish"
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:layout_margin="8dp"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/textView_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:padding="8dp"
+                android:scrollHorizontally="true"
+                android:text="Dish Name"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/textView_servings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2 Servings"
+                android:paddingLeft="8dp"
+                android:textColor="@color/grey"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/textView_likes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2 Likes"
+                android:paddingLeft="8dp"
+                android:textColor="@color/grey"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/textView_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2 mins"
+                android:paddingLeft="8dp"
+                android:textColor="@color/grey"
+                android:textSize="14sp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
