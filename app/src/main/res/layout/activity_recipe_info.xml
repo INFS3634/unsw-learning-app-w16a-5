@@ -59,14 +59,24 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_dish_ingredients"
                 android:layout_width="match_parent"
-                android:layout_height="66dp"
+                android:layout_height="98dp"
                 android:layout_margin="8dp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id= "@+id/recycler_dish_instructions"
-                android:layout_margin="8dp"
+            <TextView
+                android:text="Steps"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:gravity="left"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_dish_instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
 
             <TextView
                 android:text="Similar Recipes"

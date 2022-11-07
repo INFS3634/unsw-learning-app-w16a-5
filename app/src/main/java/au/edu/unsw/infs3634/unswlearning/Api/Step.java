@@ -6,5 +6,5 @@ public class Step {
     public int number;
     public String step;
     public ArrayList<Ingredient> ingredients;
-    public ArrayList<Object> equipment;
+    public ArrayList<Equipment> equipment;
 }
