@@ -46,8 +46,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
         holder.textView_title.setText(list.get(position).title);
         holder.textView_title.setSelected(true);
         holder.textView_servings.setText(list.get(position).servings + " servings");
-        holder.textView_likes.setText(list.get(position).aggregateLikes + "likes");
-        holder.textView_time.setText(list.get(position).readyInMinutes + "mins");
+        holder.textView_likes.setText(list.get(position).aggregateLikes + " likes");
+        holder.textView_time.setText(list.get(position).readyInMinutes + " mins");
         Picasso.get().load(list.get(position).image).into(holder.imageView_dish);
 
         //if any recipes are clicked

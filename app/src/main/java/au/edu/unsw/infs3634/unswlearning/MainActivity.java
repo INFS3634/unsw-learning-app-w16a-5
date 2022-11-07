@@ -1,5 +1,6 @@
 package au.edu.unsw.infs3634.unswlearning;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,9 +8,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
+import android.widget.Spinner;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     SearchView searchView;
     List<String> tags = new ArrayList<>();
-
+    Spinner spinner;
+    BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +45,26 @@ public class MainActivity extends AppCompatActivity {
         dialog = new ProgressDialog(this);
         dialog.setTitle("Loading");
 
-        manager = new ApiRequestManager(this);
-        manager.getRecipes(recipeResponseListener, tags);
-        dialog.show();
+        /*
+        //initialise bottom nav bar
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+        //set home selected
+        bottomNavigationView.setSelectedItemId(R.id.home);
+        //ItemSelectedListener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.learn:
+                        startActivity(new Intent(getApplicationContext(), LearnActivity.class));
+                        overridePendingTransition(0,0);
+                        finish();
+                        return true;
+                }
+                return false;
+            }
+        });
+        */
 
         searchView = findViewById(R.id.searchView_home);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -55,6 +82,16 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        spinner = findViewById(R.id.spinner_filter);
+        ArrayAdapter arrayAdapter = ArrayAdapter.createFromResource(this, R.array.tags, R.layout.spinner_background);
+        arrayAdapter.setDropDownViewResource(R.layout.spinner_text);
+        spinner.setAdapter(arrayAdapter);
+        spinner.setOnItemSelectedListener(spinnerSelectedListener);
+        manager = new ApiRequestManager(this);
+        manager.getRecipes(recipeResponseListener, tags);
+        dialog.show();
+
     }
 
     private final RecipeResponseListener recipeResponseListener = new RecipeResponseListener() {
@@ -77,7 +114,21 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private final AdapterView.OnItemSelectedListener spinnerSelectedListener = new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            tags.clear();
+            //get item from the adapter view and convert it to a string format
+            tags.add(adapterView.getSelectedItem().toString());
+            manager.getRecipes(recipeResponseListener, tags);
+            dialog.show();
+        }
 
+        @Override
+        public void onNothingSelected(AdapterView<?> adapterView) {
+
+        }
+    };
 
 
     private final RecipeClickListener recipeClickListener = new RecipeClickListener() {
