@@ -4,27 +4,59 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1345" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/correct_answer.xml" value="0.265" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/exit_quiz.xml" value="0.457" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1345" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/ic_exit_quiz.xml" value="0.457" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/ic_filter.xml" value="0.1345" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/ic_launcher_background.xml" value="0.265" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/ic_nav_home.xml" value="0.128" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/ic_nav_learn.xml" value="0.1345" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/ic_nav_notes.xml" value="0.1345" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/ic_nav_quiz.xml" value="0.1345" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/ic_profile.xml" value="0.1345" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/ic_profile_background.xml" value="0.12" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/ic_profile_foreground.xml" value="0.12" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/ic_search.xml" value="0.1345" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/incorrect_answer.xml" value="0.265" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/nav_bar_selection.xml" value="0.1345" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/profile_gradient_bg.xml" value="0.12" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/rounded_button.xml" value="0.108" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/drawable/timer_progress.xml" value="0.265" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/activity_learn.xml" value="0.1" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/activity_learn2.xml" value="0.19814814814814816" />
-        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/activity_main.xml" value="0.4258064516129032" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/activity_main.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/activity_progress.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/activity_quiz.xml" value="0.22" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/activity_recipe_info.xml" value="0.22" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/detail_holder.xml" value="0.1" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/fragment_auth.xml" value="0.30833333333333335" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/fragment_cirriculum.xml" value="0.30833333333333335" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/fragment_detail.xml" value="0.5" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/fragment_details.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/fragment_learn.xml" value="0.24722222222222223" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/fragment_list.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/fragment_module.xml" value="0.3472222222222222" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/fragment_module_detail.xml" value="0.4024896265560166" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/fragment_profile.xml" value="0.3856858846918489" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/fragment_quiz.xml" value="0.5" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/fragment_result.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/fragment_start.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/fragment_test.xml" value="0.48518518518518516" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/list_ingredients.xml" value="0.6" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/list_instructions.xml" value="0.43737574552683894" />
-        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/list_instructions_steps.xml" value="0.1" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/list_instructions_steps.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/list_instructions_steps_item.xml" value="0.48518518518518516" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/list_recipes.xml" value="0.22" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/list_similar.xml" value="0.5" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/module_list_item.xml" value="0.6" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/modules_completed_item.xml" value="0.3212962962962963" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/quiz_list_item.xml" value="0.5" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/single_list_item.xml" value="0.5" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/spinner_inner_text.xml" value="0.19895833333333332" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/layout/spinner_text.xml" value="0.19895833333333332" />
-        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/menu/menu_nav.xml" value="0.5734375" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/menu/menu_nav.xml" value="0.22" />
+        <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.216" />
         <entry key="..\:/Users/henry/AndroidStudioProjects/unsw-learning-app-w16a-5/app/src/main/res/xml/divider.xml" value="0.4601851851851852" />
       </map>
     </option>

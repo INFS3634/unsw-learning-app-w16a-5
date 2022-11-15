@@ -6,18 +6,18 @@
         android:icon="@drawable/ic_nav_home"/>
 
     <item
-        android:id="@+id/learn"
-        android:title="Learn"
+        android:id="@+id/quiz"
+        android:title="Quiz"
         android:icon="@drawable/ic_nav_learn"/>
 
     <item
-        android:id="@+id/quiz"
-        android:title="Quiz"
+        android:id="@+id/learn"
+        android:title="Learn"
         android:icon="@drawable/ic_nav_quiz"/>
 
     <item
-        android:id="@+id/notes"
-        android:title="Notes"
+        android:id="@+id/profile"
+        android:title="Profile"
         android:icon="@drawable/ic_nav_notes"/>
 
 </menu>

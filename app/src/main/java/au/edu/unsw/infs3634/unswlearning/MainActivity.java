@@ -12,13 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.Spinner;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     List<String> tags = new ArrayList<>();
     Spinner spinner;
     BottomNavigationView bottomNavigationView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         dialog = new ProgressDialog(this);
         dialog.setTitle("Loading");
 
-        /*
+
         //initialise bottom nav bar
         bottomNavigationView = findViewById(R.id.bottom_nav);
         //set home selected
@@ -55,6 +55,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), ProgressActivity.class));
+                        overridePendingTransition(0,0);
+                        finish();
+                        return true;
+
+                    case R.id.quiz:
+                        startActivity(new Intent(getApplicationContext(), QuizActivity.class));
+                        overridePendingTransition(0,0);
+                        finish();
+                        return true;
+
                     case R.id.learn:
                         startActivity(new Intent(getApplicationContext(), LearnActivity.class));
                         overridePendingTransition(0,0);
@@ -64,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-        */
+
 
         searchView = findViewById(R.id.searchView_home);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -90,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(spinnerSelectedListener);
         manager = new ApiRequestManager(this);
         manager.getRecipes(recipeResponseListener, tags);
+
         dialog.show();
 
     }

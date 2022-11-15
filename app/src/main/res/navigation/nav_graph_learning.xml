@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_learning"
+    app:startDestination="@id/authFragment">
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="au.edu.unsw.infs3634.unswlearning.Fragments.AuthFragment"
+        android:label="AuthFragment"
+        tools:layout="@layout/fragment_auth">
+        <action
+            android:id="@+id/action_authFragment_to_moduleFragment"
+            app:destination="@id/moduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moduleFragment"
+        android:name="au.edu.unsw.infs3634.unswlearning.Fragments.ModuleFragment"
+        android:label="ModuleFragment"
+        tools:layout="@layout/fragment_module">
+        <action
+            android:id="@+id/action_moduleFragment_to_moduleDetailFragment"
+            app:destination="@id/moduleDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moduleDetailFragment"
+        android:name="au.edu.unsw.infs3634.unswlearning.Fragments.ModuleDetailFragment"
+        android:label="fragment_module_detail"
+        tools:layout="@layout/fragment_module_detail" >
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_moduleDetailFragment_to_moduleFragment"
+            app:destination="@id/moduleFragment"
+            app:popUpTo="@id/moduleFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

@@ -9,19 +9,23 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class LearnActivity extends AppCompatActivity {
+public class QuizActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_learn);
+        setContentView(R.layout.activity_quiz);
+
 
         //initialise bottom nav bar
         bottomNavigationView = findViewById(R.id.bottom_nav);
         //set home selected
-        bottomNavigationView.setSelectedItemId(R.id.learn);
+        bottomNavigationView.setSelectedItemId(R.id.quiz);
         //ItemSelectedListener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -33,8 +37,8 @@ public class LearnActivity extends AppCompatActivity {
                         finish();
                         return true;
 
-                    case R.id.quiz:
-                        startActivity(new Intent(getApplicationContext(), QuizActivity.class));
+                    case R.id.learn:
+                        startActivity(new Intent(getApplicationContext(), LearnActivity.class));
                         overridePendingTransition(0,0);
                         finish();
                         return true;
@@ -51,5 +55,6 @@ public class LearnActivity extends AppCompatActivity {
 
 
     }
+
 
 }

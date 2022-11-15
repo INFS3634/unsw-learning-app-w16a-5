@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.ModuleDetailFragment">
+
+
+    <TextView
+        android:id="@+id/module_learn_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:text="Learning Module name"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="458dp"
+        android:layout_marginBottom="188dp"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/module_learn_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="While some foods are healthier than others, there is no such thing as a “bad” food. Different foods can serve different purposes, but they are all providing us with energy and nutrients that our body needs. For example, pizza contains nutrients such as carbohydrates, protein, fat, calcium, and others depending on the toppings. A salad with grilled chicken and dressing contains nutrients such as protein, carbohydrates, fat, fiber, vitamin A, vitamin C, and more. People tend to think of fast food as being unhealthy because there are often many choices that have been fried and historically the portions tend to be “super” sized. Depending on what fast food you get, it may be higher in calories (energy), saturated fat, and sodium than what your body needs at a specific mealtime. Also keep in mind that soda, often featured prominently at fast food restaurants, has a lot of added sugar which is generally not necessary in the diet."
+            android:textSize="16sp">
+
+        </TextView>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/module_learn_complete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="76dp"
+        android:text="Mark as Completed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

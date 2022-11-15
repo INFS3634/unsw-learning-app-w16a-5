@@ -15,6 +15,5 @@
 
         <item name="android:editTextColor">@color/black</item>
         <item name="android:textColorHint">@color/grey</item>
-
     </style>
 </resources>
