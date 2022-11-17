@@ -14,6 +14,10 @@ public class QuizListViewModel extends ViewModel implements FirebaseRepository.O
     //if anything is changed, it will notify the ListFragment
     private MutableLiveData<List<QuizListModel>> quizListModelData = new MutableLiveData<>();
 
+
+    //ViewModel class stores and manages the fragment data so it can react to configuration changes
+    //LiveData is an observable data holder that is life-cycle aware of changes
+    //is used to wrap the List<QuizListModel> list of objects
     public LiveData<List<QuizListModel>> getQuizListModelData() {
         return quizListModelData;
     }

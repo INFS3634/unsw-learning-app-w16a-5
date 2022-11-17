@@ -115,7 +115,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
         //similar to get Intent for Activites, this is the equivalent for Fragments
         //arguments are store in nav_graph
-        //this argument is parsed quiz Id, quiz title and total questions from detailFragment
+        //this argument passes the quiz Id, quiz title and total questions from detailFragment
         quizId = QuizFragmentArgs.fromBundle(getArguments()).getQuizId();
         quizTitle =  QuizFragmentArgs.fromBundle(getArguments()).getQuizTitle();
         totalQuestionsToAnswer = QuizFragmentArgs.fromBundle(getArguments()).getTotalQuestions();

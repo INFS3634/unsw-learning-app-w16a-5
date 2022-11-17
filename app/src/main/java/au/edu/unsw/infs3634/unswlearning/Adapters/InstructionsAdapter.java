@@ -22,7 +22,7 @@ public class InstructionsAdapter extends RecyclerView.Adapter<InstructionsViewHo
     Context context;
     List<InstructionsReponse> list;
 
-    //constructor that is parsed the values of application context and list that holds the name of the dish and the public steps;
+    //constructor that passes the values of application context and list that holds the name of the dish and the public steps;
     //converted from JSON object
     public InstructionsAdapter(Context context, List<InstructionsReponse> list) {
         this.context = context;
@@ -39,6 +39,7 @@ public class InstructionsAdapter extends RecyclerView.Adapter<InstructionsViewHo
     @Override
     public void onBindViewHolder(@NonNull InstructionsViewHolder holder, int position) {
         //adapter for the father container for all instructions
+        //creates an adapter class from the InstructionStepAdapter and is
         holder.textView_instruction_name.setText(list.get(position).name);
         holder.recycler_instruction_steps.setHasFixedSize(true);
         holder.recycler_instruction_steps.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));

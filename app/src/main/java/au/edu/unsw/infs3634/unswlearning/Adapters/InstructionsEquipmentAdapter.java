@@ -23,7 +23,7 @@ public class InstructionsEquipmentAdapter extends RecyclerView.Adapter<Instructi
     Context context;
     List<Equipment> list;
 
-    //constructor that is parsed the values of application context and list that holds the equipment info from API;
+    //constructor that passes the values of application context and list that holds the equipment info from API;
     //converted from JSON object
     public InstructionsEquipmentAdapter(Context context, List<Equipment> list) {
         this.context = context;

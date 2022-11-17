@@ -25,7 +25,7 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsViewhold
     Context context;
     List<ExtendedIngredient> list;
 
-    //constructor that is parsed the values of application context and list that holds the JSON objects from the ExtendedIngredients class
+    //constructor that passes the values of application context and list that holds the JSON objects from the ExtendedIngredients class
     public IngredientsAdapter(Context context, List<ExtendedIngredient> list) {
         this.context = context;
         this.list = list;
