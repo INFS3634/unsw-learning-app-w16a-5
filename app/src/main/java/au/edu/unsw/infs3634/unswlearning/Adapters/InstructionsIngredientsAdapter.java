@@ -20,9 +20,12 @@ import au.edu.unsw.infs3634.unswlearning.R;
 
 public class InstructionsIngredientsAdapter extends RecyclerView.Adapter<InstructionsIngredientsViewHolder> {
 
+    //context or current state of the app
     Context context;
     List<Ingredient> list;
 
+    //constructor that is parsed the values of application context and list that holds the Ingredient info from the API
+    //converted from JSON object
     public InstructionsIngredientsAdapter(Context context, List<Ingredient> list) {
         this.context = context;
         this.list = list;
@@ -34,6 +37,7 @@ public class InstructionsIngredientsAdapter extends RecyclerView.Adapter<Instruc
         return new InstructionsIngredientsViewHolder(LayoutInflater.from(context).inflate(R.layout.list_instructions_steps_item, parent, false));
     }
 
+    //delegate the implementation of binding to the ViewHolder
     @Override
     public void onBindViewHolder(@NonNull InstructionsIngredientsViewHolder holder, int position) {
         holder.textView_instructions_step_item.setText(list.get(position).name);
@@ -42,11 +46,16 @@ public class InstructionsIngredientsAdapter extends RecyclerView.Adapter<Instruc
 
     }
 
+    /*returns the total number of items in the dataset held by the called by Ingredient class
+      after being populated using the get method in RecipeApiResponse
+     */
     @Override
     public int getItemCount() {
         return list.size();
     }
 }
+
+//initialise the UI
 
 class InstructionsIngredientsViewHolder extends RecyclerView.ViewHolder {
     ImageView imageView_instructions_step_items;

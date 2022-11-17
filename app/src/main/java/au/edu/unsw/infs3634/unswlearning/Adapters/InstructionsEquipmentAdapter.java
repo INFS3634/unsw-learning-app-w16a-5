@@ -19,9 +19,12 @@ import au.edu.unsw.infs3634.unswlearning.R;
 
 public class InstructionsEquipmentAdapter extends RecyclerView.Adapter<InstructionsEquipmentViewHolder> {
 
+    //context or current state of the app
     Context context;
     List<Equipment> list;
 
+    //constructor that is parsed the values of application context and list that holds the equipment info from API;
+    //converted from JSON object
     public InstructionsEquipmentAdapter(Context context, List<Equipment> list) {
         this.context = context;
         this.list = list;
@@ -34,19 +37,27 @@ public class InstructionsEquipmentAdapter extends RecyclerView.Adapter<Instructi
         return new InstructionsEquipmentViewHolder(LayoutInflater.from(context).inflate(R.layout.list_instructions_steps_item, parent, false));
     }
 
+    //delegate the implementation of binding to the ViewHolder
     @Override
     public void onBindViewHolder(@NonNull InstructionsEquipmentViewHolder holder, int position) {
         holder.textView_instructions_step_item.setText(list.get(position).name);
         holder.textView_instructions_step_item.setSelected(true);
+        //loads image using Picasso from the Spoonacular API
+        //format is as specified by the API doco
         Picasso.get().load("https://spoonacular.com/cdn/equipment_100x100/" + list.get(position).image).into(holder.imageView_instructions_step_items);
     }
 
+
+    /*returns the total number of items in the dataset held by the called by InstructionsResponse
+      after being populated using the get method in RecipeApiResponse
+     */
     @Override
     public int getItemCount() {
         return list.size();
     }
 }
 
+//initialise the UI
 class InstructionsEquipmentViewHolder extends RecyclerView.ViewHolder {
 
     ImageView imageView_instructions_step_items;

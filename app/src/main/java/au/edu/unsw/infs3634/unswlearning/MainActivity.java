@@ -48,25 +48,28 @@ public class MainActivity extends AppCompatActivity {
 
         //initialise bottom nav bar
         bottomNavigationView = findViewById(R.id.bottom_nav);
-        //set home selected
+        //set home selected with styles referencing nav_bar_selection.xml
         bottomNavigationView.setSelectedItemId(R.id.home);
-        //ItemSelectedListener
+        //method called when an item in the navigation menu is selected where "item" is the selected item
+        //returns a boolean where true displays the item as the selected item
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                //switch statement corresponds to each navigation item in the bottom nav bar
                 switch (item.getItemId()) {
+                    //pass intent and switches activity to ProgressActivity
                     case R.id.profile:
                         startActivity(new Intent(getApplicationContext(), ProgressActivity.class));
                         overridePendingTransition(0,0);
                         finish();
                         return true;
-
+                    //pass intent and switches activity to QuizActivity
                     case R.id.quiz:
                         startActivity(new Intent(getApplicationContext(), QuizActivity.class));
                         overridePendingTransition(0,0);
                         finish();
                         return true;
-
+                    //pass intent and switches activity to LearnActivity
                     case R.id.learn:
                         startActivity(new Intent(getApplicationContext(), LearnActivity.class));
                         overridePendingTransition(0,0);
@@ -77,13 +80,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //initialise the search bar
         searchView = findViewById(R.id.searchView_home);
+        //sets a listener for user actions within the SearchView
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
+                //remove anything from the tags ArrayList
                 tags.clear();
+                //adds the user searchView input into tags ArrayList
                 tags.add(s);
+                //calls getRecipes method from the ApiRequestManager
                 manager.getRecipes(recipeResponseListener, tags);
                 dialog.show();
                 return true;
@@ -95,12 +102,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //initialise spinner
         spinner = findViewById(R.id.spinner_filter);
+        // Create an ArrayAdapter using the string array tags from strings.xml and a spinner layout
         ArrayAdapter arrayAdapter = ArrayAdapter.createFromResource(this, R.array.tags, R.layout.spinner_background);
+        // Specify the layout to use when the list of choices appears
         arrayAdapter.setDropDownViewResource(R.layout.spinner_text);
+        // Apply the adapter to the spinner
         spinner.setAdapter(arrayAdapter);
+        //when an item on the spinner is clicked
         spinner.setOnItemSelectedListener(spinnerSelectedListener);
+        //parses the current state of the app
         manager = new ApiRequestManager(this);
+        //calls the getRecipes method from ApiRequestManager
         manager.getRecipes(recipeResponseListener, tags);
 
         dialog.show();
@@ -112,11 +126,13 @@ public class MainActivity extends AppCompatActivity {
         public void fetched(RecipeApiResponse response, String message) {
             //gets rid of the loading animation
             dialog.dismiss();
+            //initialises the RecyclerView
             recyclerView = findViewById(R.id.recycler_recipes);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 1));
             //passes values into the constructor of RecipeAdapter
             recipeAdapter = new RecipeAdapter(MainActivity.this, response.recipes, recipeClickListener);
+            //sets the view of random recipes
             recyclerView.setAdapter(recipeAdapter);
 
         }

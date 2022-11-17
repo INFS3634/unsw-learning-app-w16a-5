@@ -18,9 +18,12 @@ import kotlin.jvm.internal.Lambda;
 
 public class InstructionsAdapter extends RecyclerView.Adapter<InstructionsViewHolder> {
 
+    //context or current state of the app
     Context context;
     List<InstructionsReponse> list;
 
+    //constructor that is parsed the values of application context and list that holds the name of the dish and the public steps;
+    //converted from JSON object
     public InstructionsAdapter(Context context, List<InstructionsReponse> list) {
         this.context = context;
         this.list = list;
@@ -32,6 +35,7 @@ public class InstructionsAdapter extends RecyclerView.Adapter<InstructionsViewHo
         return new InstructionsViewHolder(LayoutInflater.from(context).inflate(R.layout.list_instructions, parent, false));
     }
 
+    //delegate the implementation of binding to the ViewHolder
     @Override
     public void onBindViewHolder(@NonNull InstructionsViewHolder holder, int position) {
         //adapter for the father container for all instructions
@@ -42,12 +46,16 @@ public class InstructionsAdapter extends RecyclerView.Adapter<InstructionsViewHo
         holder.recycler_instruction_steps.setAdapter(stepAdapter);
     }
 
+    /*returns the total number of items in the dataset held by the called by InstructionsResponse
+      after being populated using the get method in RecipeApiResponse
+     */
     @Override
     public int getItemCount() {
         return list.size();
     }
 }
 
+//initialise the UI
 class InstructionsViewHolder extends RecyclerView.ViewHolder {
     TextView textView_instruction_name;
     RecyclerView recycler_instruction_steps;

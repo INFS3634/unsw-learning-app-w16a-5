@@ -21,9 +21,11 @@ import au.edu.unsw.infs3634.unswlearning.R;
 
 public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsViewholder> {
 
+    //context or current state of the app
     Context context;
     List<ExtendedIngredient> list;
 
+    //constructor that is parsed the values of application context and list that holds the JSON objects from the ExtendedIngredients class
     public IngredientsAdapter(Context context, List<ExtendedIngredient> list) {
         this.context = context;
         this.list = list;
@@ -35,6 +37,7 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsViewhold
         return new IngredientsViewholder(LayoutInflater.from(context).inflate(R.layout.list_ingredients, parent, false));
     }
 
+    //delegate the implementation of binding to the ViewHolder
     @Override
     public void onBindViewHolder(@NonNull IngredientsViewholder holder, int position) {
         holder.textView_ingredients_name.setText(list.get(position).name);
@@ -48,6 +51,9 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsViewhold
         Picasso.get().load("https://spoonacular.com/cdn/ingredients_100x100/" + list.get(position).image).into(holder.imageView_ingredients);
     }
 
+    /*returns the total number of items in the dataset held by the called by InstructionsResponse
+      after being populated using the get method in RecipeApiResponse
+     */
     @Override
     public int getItemCount() {
         return list.size();
@@ -57,7 +63,7 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsViewhold
 }
 
 
-//ViewHolder class
+//initialise the UI
 class IngredientsViewholder extends RecyclerView.ViewHolder {
     TextView textView_ingredients_quantity, textView_ingredients_name;
     ImageView imageView_ingredients;

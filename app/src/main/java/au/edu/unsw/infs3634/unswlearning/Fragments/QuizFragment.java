@@ -55,7 +55,8 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
 
     private List<QuestionsModel> questionsToAnswer = new ArrayList<>();
-    private long totalQuestionsToAnswer = 4;
+    //parsed from the previous fragment DetailActivity
+    private long totalQuestionsToAnswer;
     //pulling the list of questions from QuestionsModel class and are picked from allQuestionsList
     private List<QuestionsModel> allQuestionsList = new ArrayList<>();
 
@@ -80,7 +81,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        //get the user ID
+        //get the user ID if the user is not null
         if(firebaseAuth.getCurrentUser() != null) {
             currUserId = firebaseAuth.getCurrentUser().getUid();
         }
@@ -114,6 +115,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
         //similar to get Intent for Activites, this is the equivalent for Fragments
         //arguments are store in nav_graph
+        //this argument is parsed quiz Id, quiz title and total questions from detailFragment
         quizId = QuizFragmentArgs.fromBundle(getArguments()).getQuizId();
         quizTitle =  QuizFragmentArgs.fromBundle(getArguments()).getQuizTitle();
         totalQuestionsToAnswer = QuizFragmentArgs.fromBundle(getArguments()).getTotalQuestions();
@@ -129,6 +131,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                             allQuestionsList = task.getResult().toObjects(QuestionsModel.class);
                             //pickQuestions
                             pickQuestions();
+                            //calls method that sets UI elements based on XML
                             loadUi();
 
 
@@ -154,12 +157,12 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
             questionsToAnswer.add(allQuestionsList.get(randomNumber));
             //removing the question we just added to questionsToAnswer from the allQuestionsList ensures no duplicate questions are picked
             allQuestionsList.remove(randomNumber);
-            Log.d(TAG, "Question " + i + " : " + questionsToAnswer.get(i).getQuestion());
         }
     }
 
     //algorithm to pick X number of random questions from our Questions database
     public static int getRandomInteger(int maximum, int minimum) {
+        //Math.random is a native library built into Java
         return ((int) (Math.random()*(maximum-minimum))) + minimum;
     }
 
@@ -168,6 +171,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         quiz_title.setText(quizTitle);
         quiz_questions.setText("Load First Question");
 
+        //calls method that allows users to press the answer buttons and
         enableOptions();
 
         //load the first question;
@@ -176,12 +180,13 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
     private void loadQuestion(int position) {
 
-        //converts the question postion to string as setText does not take property type in
+        //converts the question postion to string as setText does not take property type integer
         String questionNum = String.valueOf(position);
         quiz_questions_number.setText(questionNum);
         currQuestion = position;
 
         //load question text
+        //a position - 1 is applied to ensure the first question doesnt get skipped from the Firebase database due to zero-based indexing
         quiz_questions.setText(questionsToAnswer.get(position-1).getQuestion());
 
         //load options
@@ -202,7 +207,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         Long timeToAnswer = questionsToAnswer.get(position-1).getTimer();
         quiz_question_time.setText(timeToAnswer.toString());
 
-        //show timer pogressbar
+        //show timer progressbar
         quiz_question_progress.setVisibility(View.VISIBLE);
 
         //start countdown in milliseconds
@@ -252,6 +257,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         //check the button that has been pressed by comparing the view IDs
+        //switch statement for the different result options
         switch (view.getId()) {
             case R.id.quiz_option_one:
                 answerSelected(quiz_option_one);
@@ -265,10 +271,10 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
             case R.id.quiz_next_btn:
                 //checks to ensure this is the last question
                 if(currQuestion == totalQuestionsToAnswer) {
-                    //load results fragment
                     submitQuiz();
 
                 }
+                //increments the currQuestions
                 else {
                     currQuestion++;
                     loadQuestion(currQuestion);
@@ -280,11 +286,16 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     }
 
     private void submitQuiz() {
+        //hashmap takes key-value pairs which are then fed back to Firebase
+        //this ensures an acceptable and digestable format for Firebase
         HashMap<String, Object> resultMap = new HashMap<>();
+        //hashmap e.g. Key: "correct", value: correctAnswers
         resultMap.put("correct", correctAnswers);
         resultMap.put("incorrect", incorrectAnswers);
         resultMap.put("missed", missedAnswers);
+        //accessing Firebase
         firebaseFirestore.collection("QuizList")
+                //create a new collection within QuizList to house the key-value pairs from the hashmap
                 .document(quizId).collection("Results")
                 .document(currUserId).set(resultMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -303,6 +314,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 });
     }
 
+    //reset the format for the UI back to normal for the next question
     private void resetQuestions() {
         quiz_option_one.setBackgroundColor(getResources().getColor(R.color.purple_500));
         quiz_option_two.setBackgroundColor(getResources().getColor(R.color.purple_500));
@@ -313,6 +325,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         quiz_next_btn.setEnabled(false);
     }
 
+    //compares the user selected answer to the answer specified in Firebase
     private void answerSelected(Button selectedButton) {
         //Check answer
         if (canAnswer) {
@@ -341,6 +354,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    //method to enable the next question button after user has submitted his answer
     private void showNextBtn() {
         //check for last question
         if(currQuestion == totalQuestionsToAnswer) {

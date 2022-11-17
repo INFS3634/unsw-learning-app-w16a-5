@@ -1,0 +1,6 @@
+This app was tested on the emulator Pixel 4A, API 30, release name: "R"
+To prevent issues with Firebase, please use Emulator version 31.2.9.
+To check emulator version, go to SDK Manager > Android SDk > SDK Tools
+Please note that Emulator version 31.3.10 has had a bug with Firebase and will not work.
+Feel free to refer to this video for ease of reference in downgrading to 31.2.9:
+"https://youtu.be/qo3SbdbXFos"
